@@ -1,13 +1,19 @@
 <h2>Parent Component</h2>
 <p>
-    {{dataFromChild}}
+	{{dataFromChild}}
 </p>
 
 <hr>
 <hr>
 <hr>
 
-<child-component 
-  [dataFromParent]="'This is data sent from parent'"
-  (sendDataToParent)="eventFromChild($event)">
+<!--
+  // Mon dataFromChild change, je le donne à la propriété de mon enfant dataFromParent
+  [dataFromParent]="dataFromChild" <- j'envoie des données à mon enfant
+
+  // Quand un événement est émis par l'enfant via sa méthode sendDataToParent
+  // je récupère cet événement dans la méthode du parent eventFromChild()
+  (sendDataToParent)="eventFromChild($event)" <- enfant envoie et parent écoute enfant
+-->
+<child-component [dataFromParent]="dataFromChild" (sendDataToParent)="eventFromChild($event)">
 </child-component>
