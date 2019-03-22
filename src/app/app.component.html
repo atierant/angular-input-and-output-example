@@ -1,0 +1,13 @@
+<h2>Parent Component</h2>
+<p>
+    {{dataFromChild}}
+</p>
+
+<hr>
+<hr>
+<hr>
+
+<child-component 
+  [dataFromParent]="'This is data sent from parent'"
+  (sendDataToParent)="eventFromChild($event)">
+</child-component>
